@@ -1,0 +1,4 @@
+.vscode
+src/dqc/__pycache__
+src/etl/__pycache__
+src/data
