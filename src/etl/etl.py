@@ -1,8 +1,8 @@
 import pandas as pd
 import os
 import sys
-from .kaggle_data_loader import download_data
-from .transform import Transform
+from .src.kaggle_data_loader import download_data
+from .src.transform import Transform
 
 
 RELEVANT_TABLES = ["sales_train",

@@ -1,5 +1,5 @@
 import pandas as pd
-from .dqc_template import DataQualityPipelineTemplate
+from .src.dqc_template import DataQualityPipelineTemplate
 from itertools import combinations
 
 
