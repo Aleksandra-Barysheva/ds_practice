@@ -1,5 +1,4 @@
 import pandas as pd
-import numpy as np
 from .dqc_template import DataQualityPipelineTemplate
 from itertools import combinations
 
@@ -130,4 +129,3 @@ class DataQualityPipeline(DataQualityPipelineTemplate):
                      "keys": intersection}
                 )
         return joins
-
