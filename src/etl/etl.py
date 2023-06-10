@@ -23,12 +23,13 @@ class RelationsTransform(Transform):
     def apply_filter(self, relations):
         return self._apply_pipes(relations, self.filter_pipes)
 
-    def apply_reduce(self,  relations):
-        merged_relations_train = (relations["sales_train"]
-                                  .merge(relations["items"], on='item_id', how='left')
-                                  .merge(relations["item_categories"], on='item_category_id', how='left')
-                                  .merge(relations["shops"], on='shop_id', how='left')
-                                  )
+    def apply_reduce(self, relations):
+        merged_relations_train = (
+            relations["sales_train"]
+            .merge(relations["items"], on='item_id', how='left')
+            .merge(relations["item_categories"], on='item_category_id', how='left')
+            .merge(relations["shops"], on='shop_id', how='left')
+        )
 
         merged_relations_test = (
             relations["test"]
@@ -38,10 +39,10 @@ class RelationsTransform(Transform):
         )
         return merged_relations_train, merged_relations_test
 
-    def _apply_pipes(self, relations, pipe):
+    def _apply_pipes(self, relations, pipes):
         for key in relations:
-            if key in pipe:
-                pipe = pipe[key]
+            if key in pipes:
+                pipe = pipes[key]
                 relations[key] = self._apply_pipe(relations[key], pipe)
         return relations
 
